@@ -68,8 +68,68 @@ R2 = SSReg / SSTot
 print("4b Selitysaste: ", R2)
 # 3 b ja 4 b selitysaste on sama 0.98776829
 
-# 5 a
+# 5 c
+MSE = SSRes / n
+print("5c MSE: ", MSE)
 
+# 5 d
+MAE = (sum(np.absolute(y-y_ennustettu))) / n
+print("5d MAE: ", MAE)
 
+# 5 e
+RMSE = np.sqrt(MSE)
+print("5e RMSE: ", RMSE)
 
+# 6 a
+x1 = [3.1, 3.9, 5.2, 6.9]
+x2 = [9, 7.5, 6, 5]
+y = [10.2, 11.5, 13.9, 15]
 
+p2 = np.poly1d(np.polyfit(x1, y, 2))
+print("6a: ", p2)
+
+# 6 b
+SSRes = sum((y - p2(x1))**2)
+print("6b SSRes: ", SSRes)
+
+# 6 c
+SSTot = sum((y - np.array(y).mean())**2)
+print("6c SSTot: ", SSTot)
+
+# 6 d
+R2 = 1 - SSRes / SSTot
+print("6d Selitysaste: ", R2)
+
+# 7 a
+p3 = np.poly1d(np.polyfit(x2, y, 3))
+print("7a: ", p3)
+
+# 7 b
+SSRes = sum((y - p3(x2))**2)
+SSTot = sum((y - np.array(y).mean())**2)
+print("7b SSRes: ", SSRes)
+print("7b SSTot: ", SSTot)
+
+# 7 c
+R2 = 1 - SSRes / SSTot
+print("7c Selitysaste: ", R2)
+
+# 7 d
+r = np.corrcoef(y, p3(x2))
+print("7d Korrelaatiokerroin: ", r[0][1], " tai ", r[1][0])
+
+# 8
+import matplotlib.pyplot as plt
+
+xp = np.linspace(2.5, 10, 100)
+plt.plot(x1, y, '.', label='x1')
+plt.plot(x2, y, '.', label='x2')
+plt.plot(xp, p2(xp), '-', label="2. asteen malli x1:lle")
+plt.plot(xp, p3(xp), '--', label='3. asteen malli x2:lle')
+
+plt.vlines(x1, y, p2(np.array(x1)), colors='r', linestyles='solid', label='x1 residuaalit')
+plt.vlines(x2, y, p3(np.array(x2)), colors='g', linestyles='solid', label='x2 residuaalit')
+
+plt.ylim(9, 16)
+plt.legend()
+plt.show()
