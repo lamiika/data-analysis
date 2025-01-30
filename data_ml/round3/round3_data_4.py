@@ -5,6 +5,8 @@ import os
 script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
+# 4
+
 df = pd.read_excel('unemployment.xlsx')
 
 df_tot = df.loc[:, ['Period', 'Unemployed']]
