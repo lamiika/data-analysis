@@ -10,7 +10,11 @@ n = 5
 s2 = 0
 for i in a:
     s2 = s2 + (i-178)**2/(5 - 1)
+<<<<<<< HEAD
 s = np.sqrt(s2)
+=======
+s = np.sqrt(sum)
+>>>>>>> 4582cc8bf4c009aa2185ebec34904f81d9962761
 
 # 1 b
 t = (178 - 180) / (s * np.sqrt(5))
