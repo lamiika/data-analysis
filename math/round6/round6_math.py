@@ -130,3 +130,4 @@ sig = 0.05
 out = stats.chisquare(data)
 for i in range(4):
     ethnicity_test(out, sig, i)
+stats.chi
