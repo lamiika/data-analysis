@@ -3,3 +3,9 @@
 *.odt
 *.png
 EEG_Scaled_data.csv
+main1.py
+main2.py
+*.pickle
+*.ini
+!epileptic_seizure_average.png
+!epileptic_seizure_heatmap.png
